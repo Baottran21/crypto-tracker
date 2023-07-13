@@ -1,6 +1,6 @@
 \c crypto
 
-DROP TABLE IF EXISTS user_coins;
+DROP TABLE IF EXISTS user_coins CASCADE;
 
 CREATE TABLE user_coins (
     users_id INT REFERENCES users(users_id),
