@@ -3,6 +3,7 @@
 import express from 'express';
 import pkg from 'pg';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 //MIDDLEWARE
 const app = express();
@@ -13,6 +14,8 @@ const { Pool } = pkg;
 const pool = new Pool({
   connectionString: databaseURL,
 });
+
+app.use(cors({ origin: '*' }));
 
 // console.log(pool); //Pool is working
 
