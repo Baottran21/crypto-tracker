@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
 export const App = () => {
+  const [users, setUsers] = useState([]);
+
   return (
     <>
-      <h1>This is Working</h1>
+      <button>Getting Data</button>
     </>
   );
 };
