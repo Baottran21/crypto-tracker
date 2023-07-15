@@ -35,6 +35,22 @@ app.get('/users', async (_, res) => {
   }
 });
 
+app.get('/coins', async (_, res) => {
+  try {
+    const results = await pool.query(`SELECT * FROM coins;`);
+    res
+      .status(200)
+      .setHeader('Content-Type', 'application/json')
+      .send(results.rows);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .setHeader('Content-Type', 'text/plain')
+      .send('INTERNAL SERVER ERROR');
+  }
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Listening on Port ${process.env.PORT}`);
 });
