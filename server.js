@@ -79,7 +79,8 @@ app.post('/users', async (req, res) => {
   }
 });
 
-app.put('/users/:id', async (req, res) => {
+//NEED TO FIX THE UNDEFINED PROBLEMS
+app.patch('/users/:id', async (req, res) => {
   const { id } = req.params;
   const { firstname, lastname, owned_coins } = req.body;
   try {
@@ -106,6 +107,29 @@ app.put('/users/:id', async (req, res) => {
   }
 });
 
+app.delete('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query(
+      `DELETE FROM users WHERE users_id = ${id} RETURNING *`
+    );
+    if (result.rowCount === 0) {
+      res
+        .status(404)
+        .setHeader('Content-Type', 'text/plain')
+        .send('USER NOT FOUND');
+      return;
+    }
+
+    res
+      .status(200)
+      .setHeader('Content-Type', 'application/json')
+      .send('USER HAS BEEN DELETED');
+  } catch (error) {
+    console.log(error);
+    serverError();
+  }
+});
 // //RESTFUL ROUTES FOR COINS
 // app.get('/coins', async (_, res) => {
 //   try {
