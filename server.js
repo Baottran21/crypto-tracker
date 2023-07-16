@@ -84,9 +84,22 @@ app.put('/users/:id', async (req, res) => {
   const { firstname, lastname, owned_coins } = req.body;
   try {
     const result = await pool.query(
-      ` UPDATE users SET firstname = '${firstname}', lastname = '${lastname}', owned_coins= ARRAY ['${owned_coins}'] WH
-      ERE users_id = ${id};`
+      `UPDATE users SET firstname = '${firstname}', lastname = '${lastname}', owned_coins= ARRAY ['${owned_coins}'] WHERE users_id = ${id};`
     );
+    //IF THERE IS NO USER
+    if (result.rowCount === 0) {
+      res
+        .status(404)
+        .setHeader('Content-Type', 'text/plain')
+        .send('USER NOT FOUND');
+      return;
+    } else {
+      res
+        .status(201)
+        .setHeader('Content-Type', 'application/json')
+        .send('USER UPDATED SUCCESSFULLY');
+      return;
+    }
   } catch (error) {
     console.log(error);
     serverError();
