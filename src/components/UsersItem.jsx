@@ -1,3 +1,3 @@
-export const UsersItem = () => {
-  return <h1>This is the individual User</h1>;
+export const UsersItem = ({ user }) => {
+  return <h1>Placeholder</h1>;
 };

@@ -14,11 +14,18 @@ const { Pool } = pkg;
 const pool = new Pool({
   connectionString: databaseURL,
 });
-
 app.use(cors({ origin: '*' }));
-
 // console.log(pool); //Pool is working
 
+//ERROR FUNCTIONS
+const serverError = (res) => {
+  res
+    .status(500)
+    .setHeader('Content-Type', 'text/plain')
+    .send('INTERNAL SERVER ERROR');
+};
+
+//RESTFUL ROUTES FOR USERS
 app.get('/users', async (_, res) => {
   try {
     const results = await pool.query(`SELECT * FROM users;`);
@@ -28,28 +35,77 @@ app.get('/users', async (_, res) => {
       .send(results.rows);
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .setHeader('Content-Type', 'text/plain')
-      .send('INTERNAL SERVER ERROR');
+    serverError();
   }
 });
 
-app.get('/coins', async (_, res) => {
+app.get('/users/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const results = await pool.query(`SELECT * FROM coins;`);
+    const result = await pool.query(
+      `SELECT * FROM users WHERE users_id = ${id}`
+    );
+    if (result.rowCount === 0) {
+      res
+        .status(404)
+        .setHeader('Content-Type', 'text/plain')
+        .send('USER NOT FOUND');
+      return;
+    }
     res
       .status(200)
       .setHeader('Content-Type', 'application/json')
-      .send(results.rows);
+      .send(result.rows[0]);
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .setHeader('Content-Type', 'text/plain')
-      .send('INTERNAL SERVER ERROR');
+    serverError();
   }
 });
+
+app.post('/users', async (req, res) => {
+  const { firstname, lastname, owned_coins } = req.body;
+  try {
+    const result = await pool.query(
+      `INSERT INTO users (firstname, lastname, owned_coins) VALUES ('${firstname}', '${lastname}', ARRAY ['${owned_coins}']);`
+    );
+    console.log(result);
+    res
+      .status(201)
+      .setHeader('Content-Type', 'application/json')
+      .send('USER SUCCESSFULLY ADDED');
+  } catch (error) {
+    console.log(error);
+    serverError();
+  }
+});
+
+app.put('/users/:id', async (req, res) => {
+  const { id } = req.params;
+  const { firstname, lastname, owned_coins } = req.body;
+  try {
+    const result = await pool.query(
+      ` UPDATE users SET firstname = '${firstname}', lastname = '${lastname}', owned_coins= ARRAY ['${owned_coins}'] WH
+      ERE users_id = ${id};`
+    );
+  } catch (error) {
+    console.log(error);
+    serverError();
+  }
+});
+
+// //RESTFUL ROUTES FOR COINS
+// app.get('/coins', async (_, res) => {
+//   try {
+//     const results = await pool.query(`SELECT * FROM coins;`);
+//     res
+//       .status(200)
+//       .setHeader('Content-Type', 'application/json')
+//       .send(results.rows);
+//   } catch (error) {
+//     console.log(error);
+//     serverError();
+//   }
+// });
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on Port ${process.env.PORT}`);

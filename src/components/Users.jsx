@@ -1,8 +1,8 @@
 import { UsersItem } from './UsersItem';
 
-const Users = (users, coins) => {
-  //   console.log(users, coins);
-  return <UsersItem users={users} coins={coins} />;
+const Users = (users) => {
+  //   console.log(users);
+  return <UsersItem user={users.users} coins={users.coins} />;
 };
 
 export default Users;
