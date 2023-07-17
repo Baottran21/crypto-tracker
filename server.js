@@ -130,6 +130,7 @@ app.delete('/users/:id', async (req, res) => {
     serverError();
   }
 });
+
 // //RESTFUL ROUTES FOR COINS
 // app.get('/coins', async (_, res) => {
 //   try {
