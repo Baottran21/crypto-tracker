@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -11,6 +12,8 @@ export const App = () => {
   //STATES
   const [users, setUsers] = useState({}); //GET THE USERS
   const [selectedUser, setSelectedUser] = useState({}); //SELECTED THE USERS
+  const [coins, setCoins] = useState({}); //GET THE COINS
+  const [selectedCoin, setSelectedCoin] = useState({}); //SELECT THE COIN FROM THE USER DISPLAY
 
   //GETTING THE USER DATA FROM THE API
   useEffect(() => {
@@ -30,15 +33,21 @@ export const App = () => {
     <>
       <div id="landing-page">
         <div id="user-navigation">
-          <h1>Crypto Tracker</h1>
-        </div>
-        <div id="main-display">
+          <h1 style={{ fontSize: 50 }}>Crypto Tracker</h1>
           <Users
             users={users}
             setUsers={setUsers}
             selectedUser={selectedUser}
             setSelectedUser={setSelectedUser}
           />
+        </div>
+        <div id="main-display">
+          {/* <Users
+            users={users}
+            setUsers={setUsers}
+            selectedUser={selectedUser}
+            setSelectedUser={setSelectedUser}
+          /> */}
           {/* <CoinDisplay /> */}
         </div>
       </div>
