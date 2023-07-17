@@ -4,14 +4,20 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 //COMPONENTS
-import Users from './components/Users.jsx';
+
+//COMPONENTS
+import { Navigation } from './components/Navigation/Navigation';
+import { Users } from './components/Users/Users';
+import { Coins } from './components/Coins/Coins';
 
 //MAIN EXPORT
 export const App = () => {
   const baseURL = 'http://localhost:8000';
+
   //STATES
   const [users, setUsers] = useState({}); //GET THE USERS
-  const [selectedUser, setSelectedUser] = useState({}); //SELECTED THE USERS
+  const [selectedUser, setSelectedUser] = useState({}); //SELECT THE USER
+  const [displayUser, setDisplayUser] = useState({}); //DISPLAY THE USER
   const [coins, setCoins] = useState({}); //GET THE COINS
   const [selectedCoin, setSelectedCoin] = useState({}); //SELECT THE COIN FROM THE USER DISPLAY
 
@@ -20,36 +26,19 @@ export const App = () => {
     const getUserData = async () => {
       const usersRes = await axios.get(`${baseURL}/users`);
       const userData = usersRes.data;
-      // console.log(userData); //Returns an Array of Objects that are the users
       setUsers(userData);
     };
-
     getUserData();
   }, []);
 
-  // console.log(users); //Array of Users
+  console.log(users); //Array of Users
 
   return (
     <>
-      <div id="landing-page">
-        <div id="user-navigation">
-          <h1 style={{ fontSize: 50 }}>Crypto Tracker</h1>
-          <Users
-            users={users}
-            setUsers={setUsers}
-            selectedUser={selectedUser}
-            setSelectedUser={setSelectedUser}
-          />
-        </div>
-        <div id="main-display">
-          {/* <Users
-            users={users}
-            setUsers={setUsers}
-            selectedUser={selectedUser}
-            setSelectedUser={setSelectedUser}
-          /> */}
-          {/* <CoinDisplay /> */}
-        </div>
+      <Navigation users={users} />
+      <div id="main-display">
+        <Users users={users} />
+        <Coins />
       </div>
     </>
   );
