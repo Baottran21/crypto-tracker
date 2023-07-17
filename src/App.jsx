@@ -35,7 +35,11 @@ export const App = () => {
 
   return (
     <>
-      <Navigation users={users} />
+      <Navigation
+        users={users}
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+      />
       <div id="main-display">
         <Users users={users} />
         <Coins />

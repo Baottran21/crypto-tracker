@@ -29,3 +29,21 @@ body {
   width: 100vw;
   height: 80vh;
 }
+
+#users-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 80vh;
+}
+
+#coins-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 80vh;
+}
