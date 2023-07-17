@@ -17,6 +17,7 @@ export const App = () => {
   //STATES
   const [users, setUsers] = useState({}); //GET THE USERS
   const [selectedUser, setSelectedUser] = useState({}); //SELECT THE USER
+  const [userKey, setUserKey] = useState(-1); //SELECTING THE KEY FOR THE SELECTION
   const [displayUser, setDisplayUser] = useState({}); //DISPLAY THE USER
   const [coins, setCoins] = useState({}); //GET THE COINS
   const [selectedCoin, setSelectedCoin] = useState({}); //SELECT THE COIN FROM THE USER DISPLAY
@@ -31,7 +32,9 @@ export const App = () => {
     getUserData();
   }, []);
 
-  console.log(users); //Array of Users
+  // console.log(users); //Array of Users
+  // console.log(selectedUser);
+  // console.log(userKey);
 
   return (
     <>
@@ -39,9 +42,11 @@ export const App = () => {
         users={users}
         selectedUser={selectedUser}
         setSelectedUser={setSelectedUser}
+        userKey={userKey}
+        setUserKey={setUserKey}
       />
       <div id="main-display">
-        <Users users={users} />
+        <Users selectedUser={selectedUser} />
         <Coins />
       </div>
     </>

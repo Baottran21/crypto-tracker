@@ -2,7 +2,7 @@ export const Coins = () => {
   return (
     <>
       <div id="coins-display">
-        <h1>This is a display of coin stats</h1>
+        <h1 style={{ fontSize: 80 }}>This is a display of coin stats</h1>
       </div>
     </>
   );

@@ -22,6 +22,16 @@ body {
   height: 10vh;
 }
 
+#user-selection-container {
+  padding-left: 30vw;
+}
+
+#user-selection {
+  width: 10vw;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
 #main-display {
   display: flex;
   justify-content: center;
@@ -30,13 +40,25 @@ body {
   height: 80vh;
 }
 
-#users-display {
+#users-display-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50vw;
   height: 80vh;
+}
+
+#user-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-display h3:hover {
+  color: #1a55f8;
+  background-color: aliceblue;
 }
 
 #coins-display {
