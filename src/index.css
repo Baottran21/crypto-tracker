@@ -15,7 +15,6 @@
 #user-navigation {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   width: 100vw;
   height: 10vh;
 }

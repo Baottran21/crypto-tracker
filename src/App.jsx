@@ -2,25 +2,22 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-//Components
+//COMPONENTS
 import Users from './components/Users.jsx';
-import { UserDisplay } from './components/UserDisplay.jsx';
-import { CoinDisplay } from './components/CoinDisplay.jsx';
-// import Coins from './components/Coins.jsx';
 
+//MAIN EXPORT
 export const App = () => {
-  const [users, setUsers] = useState({});
-  // const [displayUsers, setDisplayUsers] = useState({});
-  const [selectedUser, setSelectedUser] = useState({});
-
-  // const [coins, setCoins] = useState([]);
   const baseURL = 'http://localhost:8000';
+  //STATES
+  const [users, setUsers] = useState({}); //GET THE USERS
+  const [selectedUser, setSelectedUser] = useState({}); //SELECTED THE USERS
+
   //GETTING THE USER DATA FROM THE API
   useEffect(() => {
     const getUserData = async () => {
       const usersRes = await axios.get(`${baseURL}/users`);
       const userData = usersRes.data;
-      // console.log(userData);
+      // console.log(userData); //Returns an Array of Objects that are the users
       setUsers(userData);
     };
 
@@ -33,15 +30,16 @@ export const App = () => {
     <>
       <div id="landing-page">
         <div id="user-navigation">
+          <h1>Crypto Tracker</h1>
+        </div>
+        <div id="main-display">
           <Users
             users={users}
+            setUsers={setUsers}
             selectedUser={selectedUser}
             setSelectedUser={setSelectedUser}
           />
-        </div>
-        <div id="main-display">
-          <UserDisplay />
-          <CoinDisplay />
+          {/* <CoinDisplay /> */}
         </div>
       </div>
     </>

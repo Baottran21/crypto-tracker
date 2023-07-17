@@ -3,8 +3,8 @@
 /* eslint-disable react/prop-types */
 import UsersItem from './UsersItem';
 
-const Users = ({ users, selectedUser, setSelectedUser }) => {
-  // console.log(users);
+const Users = ({ users, setUsers, selectedUser, setSelectedUser }) => {
+  // console.log(users); //Array of users came through
 
   //Added a conditional rendering while the users are being loaded
   if (!Array.isArray(users)) {
@@ -13,9 +13,6 @@ const Users = ({ users, selectedUser, setSelectedUser }) => {
 
   return (
     <>
-      {/* {users.map((elem, index) => (
-        <UsersItem key={index} user={elem} />
-      ))} */}
       <UsersItem
         user={users}
         selectedUser={selectedUser}
