@@ -6,6 +6,7 @@ const baseURL = 'http://localhost:8000';
 
 export const Navigation = ({
   users,
+  setUsers,
   selectedUser,
   setSelectedUser,
   userKey,
@@ -13,9 +14,12 @@ export const Navigation = ({
 }) => {
   const handleDelete = async () => {
     const userDelete = await axios.delete(
-      `${baseURL}/${selectedUser.users_id}`
+      `${baseURL}/users/${selectedUser.users_id}`
     );
-    console.log(userDelete);
+    alert(userDelete.data);
+    const updated = await axios.get(`${baseURL}/users`);
+    setUsers(updated.data);
+    setSelectedUser({});
   };
   return (
     <>
@@ -30,7 +34,9 @@ export const Navigation = ({
           userKey={userKey}
           setUserKey={setUserKey}
         />
-        <button onClick={handleDelete}>Delete User</button>
+        <button onClick={handleDelete} style={{ marginLeft: '2vw' }}>
+          Delete User
+        </button>
       </div>
     </>
   );

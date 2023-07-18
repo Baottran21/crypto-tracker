@@ -23,7 +23,7 @@ export const Coins = ({ selectedCoin, coins }) => {
                 }}
               >
                 {' '}
-                Price: {coin.price}
+                Price: {Number(coin.price).toFixed(2)}
               </h2>
             </div>
           </div>

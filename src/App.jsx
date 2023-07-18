@@ -41,6 +41,7 @@ export const App = () => {
     <>
       <Navigation
         users={users}
+        setUsers={setUsers}
         selectedUser={selectedUser}
         setSelectedUser={setSelectedUser}
         userKey={userKey}
