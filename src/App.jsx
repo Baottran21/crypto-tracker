@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import data from './../testData';
-// console.log(data.data.coins);
 import getCoins from './../coinData';
 
 //COMPONENTS
@@ -42,11 +41,6 @@ export const App = () => {
     };
     executeNewCoin();
   }, []);
-
-  // console.log(users); //Array of Users
-  // console.log(selectedUser);
-  // console.log(userKey);
-  // console.log(selectedCoin);
 
   return (
     <>

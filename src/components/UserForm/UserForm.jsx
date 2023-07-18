@@ -25,7 +25,6 @@ export const UserForm = ({ users, setUsers, coins }) => {
     setUsers(updated.data);
     e.target.reset();
   }
-  //   console.log(users);
 
   return (
     <>

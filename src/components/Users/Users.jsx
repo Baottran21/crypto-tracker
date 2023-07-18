@@ -6,7 +6,6 @@ export const Users = ({ selectedUser, selectedCoin, setSelectedCoin }) => {
     }
 
     function handleClick(e) {
-      // console.log(e.currentTarget.id);
       setSelectedCoin(e.currentTarget.id);
     }
 

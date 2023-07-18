@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 export const Coins = ({ selectedCoin, coins }) => {
   for (let coin of coins) {
-    // console.log(coin);
     if (coin.symbol === selectedCoin) {
       return (
         <>
