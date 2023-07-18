@@ -61,11 +61,18 @@ body {
   background-color: aliceblue;
 }
 
-#coins-display {
+#coins-display-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50vw;
   height: 80vh;
+}
+
+#coin-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

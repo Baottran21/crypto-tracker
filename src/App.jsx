@@ -2,8 +2,8 @@
 /* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-//COMPONENTS
+import data from './../testData';
+// console.log(data.data.coins);
 
 //COMPONENTS
 import { Navigation } from './components/Navigation/Navigation';
@@ -18,8 +18,8 @@ export const App = () => {
   const [users, setUsers] = useState({}); //GET THE USERS
   const [selectedUser, setSelectedUser] = useState({}); //SELECT THE USER
   const [userKey, setUserKey] = useState(-1); //SELECTING THE KEY FOR THE SELECTION
-  const [displayUser, setDisplayUser] = useState({}); //DISPLAY THE USER
-  const [coins, setCoins] = useState({}); //GET THE COINS
+  // const [displayUser, setDisplayUser] = useState({}); //DISPLAY THE USER
+  const [coins, setCoins] = useState(data.data.coins); //GET THE COINS
   const [selectedCoin, setSelectedCoin] = useState({}); //SELECT THE COIN FROM THE USER DISPLAY
 
   //GETTING THE USER DATA FROM THE API
@@ -35,6 +35,7 @@ export const App = () => {
   // console.log(users); //Array of Users
   // console.log(selectedUser);
   // console.log(userKey);
+  // console.log(selectedCoin);
 
   return (
     <>
@@ -46,8 +47,12 @@ export const App = () => {
         setUserKey={setUserKey}
       />
       <div id="main-display">
-        <Users selectedUser={selectedUser} />
-        <Coins />
+        <Users
+          selectedUser={selectedUser}
+          selectedCoin={selectedCoin}
+          setSelectedCoin={setSelectedCoin}
+        />
+        <Coins selectedCoin={selectedCoin} coins={coins} />
       </div>
     </>
   );

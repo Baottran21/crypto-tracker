@@ -1,11 +1,13 @@
-export const Users = ({ selectedUser }) => {
+/* eslint-disable no-unused-vars */
+export const Users = ({ selectedUser, selectedCoin, setSelectedCoin }) => {
   const UserCard = () => {
     if (selectedUser.owned_coins === undefined) {
       return BlankCard();
     }
 
     function handleClick(e) {
-      console.log(e.currentTarget.id);
+      // console.log(e.currentTarget.id);
+      setSelectedCoin(e.currentTarget.id);
     }
 
     return (
@@ -15,14 +17,6 @@ export const Users = ({ selectedUser }) => {
             <h1 style={{ fontSize: 80 }}>
               {selectedUser.firstname} {selectedUser.lastname}
             </h1>
-            {/* <select name="" id="">
-            <option value="">Select A Coin</option>
-            {selectedUser.owned_coins.map((elem, index) => (
-              <option value="" key={index}>
-                {elem}
-              </option>
-            ))}
-          </select> */}
             <h2
               style={{
                 fontSize: 50,
