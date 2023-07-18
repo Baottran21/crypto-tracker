@@ -17,6 +17,8 @@ const pool = new Pool({
 app.use(cors({ origin: '*' }));
 // console.log(pool); //Pool is working
 
+app.use(express.static('dist'));
+
 //ERROR FUNCTIONS
 const serverError = (res) => {
   res

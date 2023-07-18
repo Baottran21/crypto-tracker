@@ -13,7 +13,7 @@ import { UserForm } from './components/UserForm/UserForm';
 
 //MAIN EXPORT
 export const App = () => {
-  const baseURL = 'http://localhost:8000';
+  const baseURL = 'https://crypto-tracker-xvui.onrender.com';
   //STATES
   const [users, setUsers] = useState({}); //GET THE USERS
   const [selectedUser, setSelectedUser] = useState({}); //SELECT THE USER

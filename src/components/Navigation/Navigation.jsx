@@ -2,7 +2,7 @@
 import { UserSelection } from './UserSelection';
 import axios from 'axios';
 
-const baseURL = 'http://localhost:8000';
+const baseURL = 'https://crypto-tracker-xvui.onrender.com';
 
 export const Navigation = ({
   users,
