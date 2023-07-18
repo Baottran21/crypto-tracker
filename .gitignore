@@ -25,7 +25,9 @@ dist-ssr
 
 ./database
 database
+
 ./.env
 .env
+
 project-notes
 E:\VS_Code\crypto-tracker\project-notes
