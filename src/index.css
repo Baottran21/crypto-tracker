@@ -23,7 +23,7 @@ body {
 }
 
 #user-selection-container {
-  margin-left: 30vw;
+  margin-left: 25vw;
 }
 
 #user-selection {
@@ -38,7 +38,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 80vh;
+  height: 70vh;
 }
 
 #users-display-container {
@@ -47,7 +47,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 50vw;
-  height: 80vh;
+  height: 100%;
 }
 
 #user-display {
@@ -70,7 +70,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 50vw;
-  height: 80vh;
+  height: 100%;
 }
 
 #coin-display {
@@ -80,4 +80,20 @@ body {
   justify-content: center;
   /* border: 3px dashed black; */
   padding: 0.5rem;
+}
+
+#user-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 20vh;
+}
+
+#user-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

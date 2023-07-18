@@ -9,6 +9,7 @@ import data from './../testData';
 import { Navigation } from './components/Navigation/Navigation';
 import { Users } from './components/Users/Users';
 import { Coins } from './components/Coins/Coins';
+import { UserForm } from './components/UserForm/UserForm';
 
 //MAIN EXPORT
 export const App = () => {
@@ -57,6 +58,7 @@ export const App = () => {
         />
         <Coins selectedCoin={selectedCoin} coins={coins} />
       </div>
+      <UserForm users={users} setUsers={setUsers} coins={coins} />
     </>
   );
 };

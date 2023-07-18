@@ -49,10 +49,8 @@ export const Navigation = ({
           }}
         >
           <button onClick={handleDelete} style={{ marginRight: '0.5vw' }}>
-            Delete User
+            Delete Current User
           </button>
-
-          <button>Add User</button>
         </div>
       </div>
     </>
