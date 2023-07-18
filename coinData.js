@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-async function getCoins() {
+const getCoins = async () => {
+  let newCoins = [];
   const coinAPI = 'https://api.coinranking.com/v2/coins';
   await axios.get(`${coinAPI}`).then((response) => {
-    return response.data;
+    newCoins = response.data.data.coins;
   });
-}
+  return newCoins;
+};
 
-export default getCoins();
+export default getCoins;

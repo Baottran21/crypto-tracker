@@ -33,6 +33,16 @@ export const App = () => {
     getUserData();
   }, []);
 
+  //GETTING THE COIN DATA FROM THE API
+  useEffect(() => {
+    const executeNewCoin = async () => {
+      const newCoins = await getCoins();
+      console.log(newCoins);
+      setCoins(newCoins);
+    };
+    executeNewCoin();
+  }, []);
+
   // console.log(users); //Array of Users
   // console.log(selectedUser);
   // console.log(userKey);

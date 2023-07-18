@@ -31,15 +31,20 @@ export const UserForm = ({ users, setUsers, coins }) => {
     <>
       <div id="user-form-container">
         <form id="user-form" action="" onSubmit={handleSubmit}>
-          <input required type="text" placeholder="First Name" />
-          <input required type="text" placeholder="Last Name" />
-          {coins.map((elem, index) => (
-            <div key={index}>
-              <input type="checkbox" id={elem.symbol} name={elem.name} />
-              <label htmlFor={elem.name}>{elem.symbol}</label>
+          <div id="available-inputs">
+            <input required type="text" placeholder="First Name" />
+            <input required type="text" placeholder="Last Name" />
+
+            <div id="available-coins">
+              {coins.map((elem, index) => (
+                <div key={index}>
+                  <input type="checkbox" id={elem.symbol} name={elem.name} />
+                  <label htmlFor={elem.name}>{elem.symbol}</label>
+                </div>
+              ))}
             </div>
-          ))}
-          <input type="submit" />
+            <input type="submit" />
+          </div>
         </form>
       </div>
     </>

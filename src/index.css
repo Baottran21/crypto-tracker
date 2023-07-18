@@ -97,3 +97,14 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#available-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10vw;
+}
+
+#available-coins {
+  display: flex;
+  flex-direction: row;
+}
