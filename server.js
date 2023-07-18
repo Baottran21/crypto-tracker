@@ -65,8 +65,10 @@ app.get('/users/:id', async (req, res) => {
 app.post('/users', async (req, res) => {
   const { firstname, lastname, owned_coins } = req.body;
   try {
+    // console.log(req.body);
     const result = await pool.query(
-      `INSERT INTO users (firstname, lastname, owned_coins) VALUES ('${firstname}', '${lastname}', ARRAY ['${owned_coins}']);`
+      // `INSERT INTO users (firstName, lastName, owned_coins) VALUES ('Bao', 'Tran', '{"BTC", "ETH", "USDT"}')`
+      `INSERT INTO users (firstname, lastname, owned_coins) VALUES ('${firstname}', '${lastname}', '{${owned_coins}}');`
     );
     console.log(result);
     res
@@ -85,7 +87,7 @@ app.patch('/users/:id', async (req, res) => {
   const { firstname, lastname, owned_coins } = req.body;
   try {
     const result = await pool.query(
-      `UPDATE users SET firstname = '${firstname}', lastname = '${lastname}', owned_coins= ARRAY ['${owned_coins}'] WHERE users_id = ${id};`
+      `UPDATE users SET firstname = '${firstname}', lastname = '${lastname}', owned_coins = ARRAY [${owned_coins}] WHERE users_id = ${id};`
     );
     //IF THERE IS NO USER
     if (result.rowCount === 0) {
@@ -130,20 +132,6 @@ app.delete('/users/:id', async (req, res) => {
     serverError();
   }
 });
-
-// //RESTFUL ROUTES FOR COINS
-// app.get('/coins', async (_, res) => {
-//   try {
-//     const results = await pool.query(`SELECT * FROM coins;`);
-//     res
-//       .status(200)
-//       .setHeader('Content-Type', 'application/json')
-//       .send(results.rows);
-//   } catch (error) {
-//     console.log(error);
-//     serverError();
-//   }
-// });
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on Port ${process.env.PORT}`);

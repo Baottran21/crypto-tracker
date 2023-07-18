@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import data from './../testData';
 // console.log(data.data.coins);
+import getCoins from './../coinData';
 
 //COMPONENTS
 import { Navigation } from './components/Navigation/Navigation';
@@ -14,7 +15,6 @@ import { UserForm } from './components/UserForm/UserForm';
 //MAIN EXPORT
 export const App = () => {
   const baseURL = 'http://localhost:8000';
-
   //STATES
   const [users, setUsers] = useState({}); //GET THE USERS
   const [selectedUser, setSelectedUser] = useState({}); //SELECT THE USER
