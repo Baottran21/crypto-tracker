@@ -2,10 +2,9 @@
 /* eslint-disable react/prop-types */
 export const UserSelection = ({
   users,
-  selectedUser,
   setSelectedUser,
-  userKey,
   setUserKey,
+  setSelectedCoin,
 }) => {
   //Conditional Rendering
   if (!Array.isArray(users)) {
@@ -15,6 +14,7 @@ export const UserSelection = ({
   function handleChange(event) {
     let index = event.currentTarget.selectedIndex;
     setUserKey(index);
+    setSelectedCoin({});
     setSelectedUser(users[index - 1]);
   }
 

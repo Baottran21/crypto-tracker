@@ -11,6 +11,8 @@ export const Navigation = ({
   setSelectedUser,
   userKey,
   setUserKey,
+  selectedCoin,
+  setSelectedCoin,
 }) => {
   const handleDelete = async () => {
     const userDelete = await axios.delete(
@@ -21,22 +23,37 @@ export const Navigation = ({
     setUsers(updated.data);
     setSelectedUser({});
   };
+
   return (
     <>
       <div id="nav">
-        <h1 style={{ fontSize: 50, margin: 0, marginLeft: 20 }}>
-          Crypto Tracker
-        </h1>
+        <h1 style={{ fontSize: '3rem', marginLeft: '1vw' }}>Crypto Tracker</h1>
         <UserSelection
           users={users}
           selectedUser={selectedUser}
           setSelectedUser={setSelectedUser}
           userKey={userKey}
           setUserKey={setUserKey}
+          selectedCoin={selectedCoin}
+          setSelectedCoin={setSelectedCoin}
         />
-        <button onClick={handleDelete} style={{ marginLeft: '2vw' }}>
-          Delete User
-        </button>
+        <div
+          id="user-input"
+          style={{
+            fontSize: 50,
+            margin: 0,
+            marginLeft: '3vw',
+            display: 'flex',
+            justifyContent: 'center',
+            width: '10vw',
+          }}
+        >
+          <button onClick={handleDelete} style={{ marginRight: '0.5vw' }}>
+            Delete User
+          </button>
+
+          <button>Add User</button>
+        </div>
       </div>
     </>
   );

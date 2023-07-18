@@ -46,6 +46,8 @@ export const App = () => {
         setSelectedUser={setSelectedUser}
         userKey={userKey}
         setUserKey={setUserKey}
+        selectedCoin={selectedCoin}
+        setSelectedCoin={setSelectedCoin}
       />
       <div id="main-display">
         <Users
