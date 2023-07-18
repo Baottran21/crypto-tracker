@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
 export const UserForm = ({ users, setUsers, coins }) => {
-  const baseURL = 'http://localhost:8000';
+  const baseURL = 'https://crypto-tracker-xvui.onrender.com';
 
   async function handleSubmit(e) {
     e.preventDefault();
