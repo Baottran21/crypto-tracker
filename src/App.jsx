@@ -36,7 +36,7 @@ export const App = () => {
   useEffect(() => {
     const executeNewCoin = async () => {
       const newCoins = await getCoins();
-      console.log(newCoins);
+      // console.log(newCoins);
       setCoins(newCoins);
     };
     executeNewCoin();

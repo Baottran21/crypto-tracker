@@ -45,6 +45,7 @@ export const UserForm = ({ users, setUsers, coins }) => {
             <input type="submit" />
           </div>
         </form>
+        <h3>Copyright. Bao Tran 2023</h3>
       </div>
     </>
   );
