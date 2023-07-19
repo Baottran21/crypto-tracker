@@ -31,8 +31,26 @@ export const UserForm = ({ users, setUsers, coins }) => {
       <div id="user-form-container">
         <form id="user-form" action="" onSubmit={handleSubmit}>
           <div id="available-inputs">
-            <input required type="text" placeholder="First Name" />
-            <input required type="text" placeholder="Last Name" />
+            <input
+              required
+              type="text"
+              placeholder="First Name"
+              style={{
+                fontSize: '1rem',
+                margin: '0.3vw 30vw',
+                borderRadius: 5,
+              }}
+            />
+            <input
+              required
+              type="text"
+              placeholder="Last Name"
+              style={{
+                fontSize: '1rem',
+                margin: '0.2vw 30vw',
+                borderRadius: 5,
+              }}
+            />
 
             <div id="available-coins">
               {coins.map((elem, index) => (
@@ -42,7 +60,14 @@ export const UserForm = ({ users, setUsers, coins }) => {
                 </div>
               ))}
             </div>
-            <input type="submit" />
+            <input
+              type="submit"
+              style={{
+                fontSize: '1rem',
+                margin: '0.3vw 40vw',
+                borderRadius: 5,
+              }}
+            />
           </div>
         </form>
         <h3>Copyright. Bao Tran 2023</h3>
