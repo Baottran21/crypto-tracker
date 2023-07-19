@@ -1,13 +1,10 @@
 body {
-  background-color: #d4d4d4;
+  background-color: #cfcfcf;
   font-family: 'Agdasima';
   margin: auto;
 }
 
 #landing-page {
-  /* display: flex;
-  flex-direction: column;
-  justify-items: center; */
   margin: auto;
   padding: auto;
   width: 100vw;
@@ -17,7 +14,8 @@ body {
 #nav {
   display: flex;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: rgb(179, 179, 179);
+  box-shadow: 5px 10px #fdfdfd;
   width: 100vw;
   height: 10vh;
 }
@@ -61,6 +59,7 @@ body {
 
 #user-display h3:hover {
   color: #1a55f8;
+  border-radius: 5px;
   background-color: aliceblue;
 }
 

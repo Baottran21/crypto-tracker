@@ -13,7 +13,7 @@ export const Users = ({ selectedUser, selectedCoin, setSelectedCoin }) => {
       <>
         <div id="users-display-container">
           <div id="user-display">
-            <h1 style={{ fontSize: 80 }}>
+            <h1 style={{ fontSize: 80, margin: '1vh' }}>
               {selectedUser.firstname} {selectedUser.lastname}
             </h1>
             <h2

@@ -9,9 +9,9 @@ export const Coins = ({ selectedCoin, coins }) => {
               <img
                 src={coin.iconUrl}
                 alt={coin.name}
-                style={{ width: 100, height: 100 }}
+                style={{ width: 150, height: 150 }}
               />
-              <h1 style={{ fontSize: 80 }}>
+              <h1 style={{ fontSize: 80, margin: '2vh' }}>
                 Rank: #{coin.rank} {coin.symbol}
               </h1>
               <h2
